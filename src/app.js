@@ -1,5 +1,16 @@
 import express from "express";
+import linkDatabase from "./config/dbConnect.js";
+import planta from "./config/models/planta.js";
 
+const conexao = await linkDatabase() //Uso da interface do moongose
+
+conexao.on("error", (erro) => {
+    console.error("Erro de conexão", erro);
+})
+
+conexao.once("open", () => {
+    console.log("**Conexão com banco de dados feita com sucesso**")
+})
 
 const app = express(); //|Pega a ideia: O conjunto de código de todas as funções Express 
                      //  |vão para dentro de app
@@ -9,11 +20,6 @@ const app = express(); //|Pega a ideia: O conjunto de código de todas as funç�
 app.use(express.json()); //"app.use()" -> Acesso a resposta enquanto ela é feita e modifico como quiser
 // No caso o express.json() será executado em todas as req que chegam e são gerenciadas pelo express
 // servirá para garantir que os bodys não sejam string e sim json
-
-const plantas = [
-    { id: "0", nome: "planta zero" },
-    { id: "1", nome: "planta um" },
-    ];
 
 // Busca o livro na base
 function plantById(id) {
@@ -32,8 +38,9 @@ app.get("/", (req, res) => {
 
 // CRUD:
 
-app.get("/plants", (req, res) => {
-    res.status(200).json(plantas);
+app.get("/plants", async (req, res) => {
+    const listaPlantas = await planta.find({}) // Nesse caso basta um objeto vazio, para voltar tudo
+    res.status(200).json(listaPlantas);
 })
 
 

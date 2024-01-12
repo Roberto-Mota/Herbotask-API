@@ -1,4 +1,5 @@
 import http from "http";
+import "dotenv/config"; //Puxando o dotenv para a raiz do projeto antes de tudo
 import app from "./src/app.js";
 
 const PORT = 1234;
