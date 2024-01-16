@@ -1,0 +1,1 @@
+// Aqui a generalização de todos os models que sejam "buildings" (tiles)

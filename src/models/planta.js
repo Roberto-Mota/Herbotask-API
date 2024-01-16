@@ -22,6 +22,6 @@ const plantaSchema = new mongoose.Schema({
 
 const planta = mongoose.model("plantas", plantaSchema) // Passo para o modelo qual coleção DB me refiro (no caso "plantas") e qual seu Schema
 
-export default planta;
+export { planta, plantaSchema }; // Exportando o modelo e o schema de planta
 
 // Nesse contexto, Schema é um objeto de configuração que define a estrutura e as propriedades de um documento
