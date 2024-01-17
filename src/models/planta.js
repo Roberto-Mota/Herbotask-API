@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { ecodomeSchema } from "./ecodome";
 
 // Interface de interação com os "documentos" (coisas) de uma coleção db
 
@@ -17,6 +18,7 @@ const plantaSchema = new mongoose.Schema({
         luminum: { type: Number }
       },
     basePrice: { type: Number, required: true },
+    //ecodomeId: { type: ecodomeSchema.ObjectId, required: false }, // viagem na maionese?
     description: { type: String, required: false }
 }, { versionKey: false }); //Desligar algo que aumenta complexidade, configuração de versionamento
 

@@ -21,8 +21,9 @@ class EcodomeController {
     }
 
     static async createEcodome(req, res) {
+            // const novaEcodome = req.body
         try {
-            const novaEcodome = await ecodome.create(req.body);
+            const novaEcodome = { ...req.body, plantas: [] }
             res.status(201).json({ message: "ecodome criada com sucesso", ecodome: novaEcodome}); //novaEcodome será o retorno do método create
             // ----------------------------------------------------//
             // ou:
