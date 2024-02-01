@@ -26,5 +26,5 @@ const PORT = 1234;
 //----------------------------------------------------------------------------//
 
 app.listen(PORT, () => {
-  console.log("Servidor escutando");
+  console.log("API iniciada na porta " + PORT);
 });
