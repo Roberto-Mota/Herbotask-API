@@ -1,3 +1,8 @@
+/**
+ * Connects to the database using the provided connection string, admin user, and admin password.
+ * @returns {mongoose.Connection} The connection object for the database.
+ */
+
 import mongoose from "mongoose";
 
 // Parte interna dessa função é conectar com o banco de dados, sendo necessário ser uma função assincrona
