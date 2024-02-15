@@ -1,5 +1,6 @@
 import express from "express";
 import plantas from "./plantasRoutes.js"
+import tasks from "./tasksRoutes.js"
 import ecodome from "./ecodomeRoutes.js"
 import cors from "cors";
 // Ponto de entrada das rotas com middleware -?-
@@ -15,6 +16,7 @@ app.use(express.json({limit: '25mb'}));
 app.use(express.urlencoded({limit: '25mb', extended: true}));
 app.use(plantas);
 app.use(ecodome);
+app.use(tasks);
 
     // Aqui está pegando todas as rotas de plantas definidas no plantaRoutes,
     // passando pra dentro de Routes, dai o express consegue gerenciar tudo de uma vez
